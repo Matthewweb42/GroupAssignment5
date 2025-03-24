@@ -1,4 +1,5 @@
-Person 1: ProductNode Class
+# Person 1: ProductNode Class
+
 Implement the ProductNode class with the following:
 
 Attributes: productName, locator, quantity, price, and next (for linked list structure)
@@ -16,7 +17,8 @@ Override toString() for easy printing
 
 
 
-Person 2: Core ProductInventory Methods
+# Person 2: Core ProductInventory Methods
+
 Implement the following methods in ProductInventory:
 
 showInventory() – Print all products in the inventory.
@@ -30,7 +32,8 @@ countNeededQuantity(String productName, int neededQuantity) – Calculate how ma
 
 
 
-Person 3: Add, Remove & Exception Handling
+# Person 3: Add, Remove & Exception Handling
+
 Implement:
 
 addProduct(String productName, String locator, int quantity, float price)
@@ -48,7 +51,8 @@ Define ProductException class
 
 
 
-Person 4: Sorting & Removing Maximum
+# Person 4: Sorting & Removing Maximum
+
 Implement:
 
 removeMaximum() – Find and remove the product with the highest quantity.
