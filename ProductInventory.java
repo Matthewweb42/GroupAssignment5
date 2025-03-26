@@ -42,20 +42,21 @@ public class ProductInventory {
     }
 
     public void sortInventory(){
-        ProductNode sortedHead = null;      // makes new reference nodes, one for the new list and one to track the return value of removeMax()
+        ProductNode sortedTail = null;   // creates these to save tail position, original head, and the current popped node.
+        ProductNode sortedHead = null;
         ProductNode poppedNode;
         while(inventoryHead != null){         // while there is content within the original inventory
             poppedNode = removeMaximum();     // pops off the maximum quantity product node
-            if(sortedHead == null){          // if its the first value in the list, it sets the head just to that popped node.
+            if(sortedTail == null){          // if its the first value in the list, it sets both the head and tail to that node
+                sortedTail = poppedNode;
                 sortedHead = poppedNode;
-            }else{                             // on every other iteration, the popped node now points to the current head value
-                poppedNode.next = sortedHead;
-                sortedHead = poppedNode;         // AFTER the popped node points to that head, the popped node now becomes the new head of the sorted list.
+            }else{                             // points the tail to that popped node, then moves the tail to the popped node.
+                sortedTail.next = poppedNode;
+                sortedTail =  poppedNode;
             }
         }
-        ProductNode newHead = new ProductNode();
-        newHead.next = sortedHead;
-        inventoryHead = newHead;                // returns the blank node pointing to the new sorted inventory
+
+        inventoryHead = sortedHead;                // returns the blank node pointing to the new sorted inventory
 
     }
 
