@@ -2,6 +2,8 @@ public class ProductInventory {
     ProductNode inventoryHead = new ProductNode();
     public void showInventory(){
         ProductNode current = inventoryHead;
+        System.out.println("Product Name Locator Quantity Price");
+        System.out.println("--------------------------------------------------------------------------");
         while (current != null) {
             System.out.println(String.format("%s %s %d %f", current.productName, current.locator, current.quantity, current.price));
             current = current.next;
