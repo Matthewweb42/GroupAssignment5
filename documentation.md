@@ -17,17 +17,14 @@ Override toString() for easy printing
 
 
 
-# Person 2: Core ProductInventory Methods
+# Garrett Jones: Core ProductInventory Methods
 
 Implement the following methods in ProductInventory:
 
-showInventory() – Print all products in the inventory.
-
-getTotalQuantity() – Return the total quantity of all products in inventory.
-
-countProduct(String productName) – Count total quantity of a product with the given name.
-
-countNeededQuantity(String productName, int neededQuantity) – Calculate how many more units are needed to reach neededQuantity.
+- [x] showInventory() – Print all products in the inventory.
+- [x] getTotalQuantity() – Return the total quantity of all products in inventory.
+- [x] countProduct(String productName) – Count total quantity of a product with the given name.
+- [x] countNeededQuantity(String productName, int neededQuantity) – Calculate how many more units are needed to reach neededQuantity.
 
 
 
