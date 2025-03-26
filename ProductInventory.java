@@ -1,9 +1,20 @@
 public class ProductInventory {
     ProductNode inventoryHead = new ProductNode();
     public void showInventory(){
+        ProductNode current = inventoryHead;
+        while (current != null) {
+            System.out.println(String.format("%s %s %d %f", current.productName, current.locator, current.quantity, current.price));
+            current = current.next;
+        }
     }
     public int getTotalQuantity(){
-        return 0;
+        ProductNode current = inventoryHead;
+        int count = 0;
+        while(current != null) {
+            count += current.quantity;
+            current = current.next;
+        }
+        return count;
     }
     public ProductNode removeMaximum(){
         if(inventoryHead == null) return null; /// prevents from running if the inventory is empty
@@ -43,7 +54,7 @@ public class ProductInventory {
     }
 
     //Matthew Webecke's Code
-    public void addProduct(String productName, String locator, int quantity, float price){
+    public void addProduct(String productName, String locator, int quantity, double price){
         if (quantity < 0 || price < 0){
             throw new ProductException("Invalid quantity or price");
         }
@@ -55,7 +66,12 @@ public class ProductInventory {
             }
             current = current.next;
         }
-        current.next = newNode;
+        // replace the empty first node if it exists
+        if (inventoryHead.productName == "" && inventoryHead.locator == "") {
+            inventoryHead = newNode;
+        } else {
+            current.next = newNode;
+        }
     }
 
     //Matthew Webecke's Code
@@ -72,10 +88,19 @@ public class ProductInventory {
 
     }
     public int countProduct(String productName){
-        return 0;
+        ProductNode current = inventoryHead;
+        int count = 0;
+        while (current != null) {
+            if (current.productName.equals(productName)) {
+                count += current.quantity;
+            }
+            current = current.next;
+        }
+        return count;
     }
     public int countNeededQuantity(String productName, int neededQuantity){
-        return 0;
+        int count = this.countProduct(productName);
+        return neededQuantity - count;
     }
     class ProductException extends RuntimeException {
         public ProductException(String s) {
